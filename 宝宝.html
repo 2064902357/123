@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情书网页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 80%;
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .heart {
+            color: #e74c3c;
+            font-size: 24px;
+        }
+        .button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #c0392b;
+        }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .heart-particle {
+            position: absolute;
+            font-size: 20px;
+            color: #e74c3c;
+            animation: floatUp 5s linear infinite;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>亲爱的李梦瑶宝宝,</h1>
+        <p>很高兴遇见你，<span class="heart">❤️</span></p>
+        <p>我很爱你也很喜欢你。</p>
+        <p>我希望能有机会更多地了解你，与你共度每一个美好的瞬间。</p>
+        <p>如果你愿意，让我们一起创造更多美好的回忆吧。</p>
+        <p>但是你醒了竟然刷视频而不是给我发消息</p>
+        <p>永远爱你的，<br>刘仕腾</p>
+        <button class="button" onclick="showHearts()">点击我</button>
+    </div>
+    <div class="hearts" id="hearts"></div>
+
+    <script>
+        function showHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-particle';
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                heartsContainer.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
